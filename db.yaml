@@ -40,5 +40,6 @@ tasks:
     ansible.builtin.command: "mysql_secure_installation --set-root-pass {{mysql_root_password}}"
     when: mysql_connection_output.failed is true
 
-
+#to run the above module we should run the ansible-playbook, run the below command to run the playbook
+#ansible-playbook -i inventory.ini -e ansible_user=ec2-user -e password=DevOps321 db.yaml
 
