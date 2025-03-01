@@ -54,8 +54,20 @@ tasks:
       name:
         - PyMySQL
         - cryptography
-      ignore_errors: yes
-      
-  - name: checking mysql connection
-    ansible.builtin.community.mysql_db:
+      executable: pip3.9
+
+  - name: importing mysql db data
+    ansible.builtin.mysql_db:
+      login_host: "{{login_host}}"
+      login_user: root
+      login_password: "{{mysql_root_password}}"
+      target: /app/schema/backend.sql
+      state: import
+      name: all
+
+  - name: daemon reload service
+    ansible.builtin.systemd_service:
+      daemon_reload: true
+
+  - 
 
