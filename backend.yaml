@@ -1,0 +1,6 @@
+name: configuring backend server
+hosts: backend.guru97s.cloud
+become: yes
+vars:
+  login_host: db.guru97s.cloud
+  mysql_root_password: "ExpenseApp@1"
