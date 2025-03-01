@@ -32,4 +32,10 @@ tasks:
       src: /tmp/backend.zip
       dest: /app
       remote_src: yes
-  - name: 
+  - name: downloading python mysql dependencies
+    ansible.builtin.pip:
+      name:
+        - PyMySQL
+        - cryptography
+      ignore_errors: yes
+  - 
