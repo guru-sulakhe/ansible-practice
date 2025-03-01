@@ -9,4 +9,11 @@ tasks:
     ansible.builtin.command: dnf module disable nodejs -y
   - name: enabling nodejs:20 version
     ansible.builtin.command: dnf module enable nodjes:20 -y
-    
+  - name: installing nodejs
+    ansible.builtin.dnf:
+      name: "{{item}}"
+      state: installed
+    loop: 
+      - nodejs
+      - mysql
+  
