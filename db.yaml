@@ -19,3 +19,10 @@ tasks:
       enabled: yes
   #Ansible is developed by python, thus we need to install pymysql,cryptography to connect to mysql-server
   - name: installing python mysql dependencies
+    ansible.builtin.pip:
+      name: 
+        - PyMySQL
+        - cryptography
+      executable: pip3.9
+      
+
