@@ -19,3 +19,7 @@ tasks:
   - name: adding user expense
     ansible.builtin.user:
       name: expense
+  - name: creating app directory
+    ansible.built.file:
+      path: /app
+      state: directory
