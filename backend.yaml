@@ -16,4 +16,6 @@ tasks:
     loop: 
       - nodejs
       - mysql
-  
+  - name: adding user expense
+    ansible.builtin.user:
+      name: expense
