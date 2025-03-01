@@ -1,0 +1,8 @@
+name: configuring db-server
+hosts: db
+become: yes
+vars_prompt:
+  - name: mysql_root_password
+    prompt: enter root password
+    private: no
+tasks:
