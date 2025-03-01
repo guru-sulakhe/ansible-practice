@@ -4,3 +4,9 @@ become: yes
 vars:
   login_host: db.guru97s.cloud
   mysql_root_password: "ExpenseApp@1"
+tasks:
+  - name: disable nodejs
+    ansible.builtin.command: dnf module disable nodejs -y
+  - name: enabling nodejs:20 version
+    ansible.builtin.command: dnf module enable nodjes:20 -y
+    
