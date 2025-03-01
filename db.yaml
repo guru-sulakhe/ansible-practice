@@ -1,8 +1,21 @@
 name: configuring db-server
 hosts: db
 become: yes
+vars:
+  login_host: db.guru97s.cloud
 vars_prompt:
   - name: mysql_root_password
     prompt: enter root password
     private: no
 tasks:
+  - name: installing mysql-server
+    ansible.builtin.dnf:
+      name: mysql-server
+      state: latest
+  - name: start and enable mysql-server
+    ansible.builtin.service:
+      name: mysqld
+      state: started
+      enabled: yes
+  #Ansible is developed by python, thus we need to install pymysql,cryptography to connect to mysql-server
+  - name: installing python mysql dependencies
